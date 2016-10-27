@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Domain-Driven Design - A Gentle Introduction | Dave Rael</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# Domain-Driven Design - A Gentle Introduction
+## Dave Rael
+
+http://optimizedprogrammer.com
+
+http://developeronfire.com
+
+dave@raelyard.com
+
+---
+# What is it?
+
+![Blue Book](bluebook.png)
+
+---
+# Why Domain-Driven?
+
+---
+# Why Domain-Driven?
+
+### Real-World Problems
+- Communications Gap
+- Complexity
+- Time is Finite
+
+---
+# Why Domain-Driven?
+
+- Collaboration
+
+![Collaboration](collaboration.png)
+
+---
+# Why Domain-Driven?
+
+- Collaboration
+- Using Composition to address complexity in large systems
+
+![Composition](composition.jpg)
+
+---
+# Why Domain-Driven?
+
+- Collaboration
+- Using Composition to address complexity in large systems
+- “Not all of a large system will be well-designed.” –Eric Evans
+
+![Time Is Finite](clock.jpg)
+
+---
+# Why Domain-Driven?
+
+- Collaboration
+- Using Composition to address complexity in large systems
+- “Not all of a large system will be well-designed.” –Eric Evans
+- “Is BDD the same as TDD? Yes. If you’re a programmer, and your entire team is programmers, and all your stakeholders are programmers…” –Dan North http://dannorth.net/2012/05/31/bdd-is-like-tdd-if/
+
+---
+# Why Domain-Driven?
+
+- Collaboration
+- Using Composition to address complexity in large systems
+- “Not all of a large system will be well-designed.” –Eric Evans
+- “Is BDD the same as TDD? Yes. If you’re a programmer, and your entire team is programmers, and all your stakeholders are programmers…” –Dan North http://dannorth.net/2012/05/31/bdd-is-like-tdd-if/
+- Ubiquitous Language
+
+---
+# What is it?
+
+![Blue Book](bluebook.png)
+
+---
+# What is Domain-Driven Design?
+
+- Ubiquitous Language
+- Domain Modeling
+- Strategic Patterns
+- Tactical Patterns
+
+---
+# Ubiquitous Language
+
+So the Lord scattered them from there over all the earth, and they stopped building the city. That is why it was called Babel—because there the Lord confused the language of the whole world. From there the Lord scattered them over the face of the whole earth. -Genesis 11:8-9
+
+![Tower of Babel](babel.jpg)
+http://www.flickr.com/photos/buridan/3657785342/
+
+---
+# Tactical Patterns
+
+### Lower-Level Architecture / Implementation
+##### (Executive Branch)
+
+- Aggregates
+- Entities
+- Value Objects
+- Repositories
+- CQRS
+- Event Sourcing
+
+![Executive](executive.jpg)
+
+---
+# Strategic Patterns
+
+### Top-Level Architecture
+##### (Legislative Branch)
+
+Top-Level Architecture
+
+- Bounded Contexts
+- Subdomains
+- Core Domain
+- Domain Events
+
+![Legislative Branch](capitol.jpg)
+
+---
+# Implementing Domain Driven Design
+
+##### (Don't take this literally and actually create these classes in your system)
+
+```C#
+public interface IDomainDrivenDesign {}
+
+public abstract class ServiceOrientedArchitecture : IDomainDrivenDesign {}
+public abstract class MicroServices : ServiceOrientedArchitecture {}
+
+public class YourSystem : ServiceOrientedArchitecture
+{
+  private YourCoreDomain _coreDomain;
+  private YourSupportingSubdomain0 _subdomain0;
+  private YourSupportingSubdomain1 _subdomain1;
+  // ...
+}
+
+public class YourCoreDomain : EventSourcing {}
+public class YourSupportingSubdomain0 : JustCRUD {}
+```
+
+---
+# Bad Idea
+
+##### (Don't take this literally and actually create these classes in your system)
+
+```C#
+public interface IDomainDrivenDesign {}
+
+public abstract class ServiceOrientedArchitecture : IDomainDrivenDesign {}
+public abstract class MicroServices : ServiceOrientedArchitecture {}
+
+public class YourSystem : ServiceOrientedArchitecture
+{
+  private YourCoreDomain _coreDomain;
+  private YourSupportingSubdomain0 _subdomain0;
+  private YourSupportingSubdomain1 _subdomain1;
+  // ...
+}
+
+public class YourCoreDomain : EventSourcing {}
+public class YourSupportingSubdomain0 : JustCRUD {}
+```
+
+
+  </textarea>
+  <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
+  </script>
+  <script>
+    var slideshow = remark.create();
+  </script>
+  </body>
+</html>
