@@ -22,13 +22,17 @@
 class: center, middle
 
 # Domain-Driven Design - A Gentle Introduction
-## Dave Rael
+### Dave Rael
 
 http://optimizedprogrammer.com
 
 http://developeronfire.com
 
+![Developer On Fire](developeronfire.png)
+
 dave@raelyard.com
+
+https://github.com/raelyard/IntroductionToDomainDrivenDesignSlides
 
 ---
 # What is it?
@@ -95,18 +99,43 @@ dave@raelyard.com
 ---
 # What is Domain-Driven Design?
 
+### "A way of using models for creating software" -Eric Evans
+
+---
+# What is Domain-Driven Design?
+
+### "A way of using models for creating software" -Eric Evans
+### "Creative collaboration of domain experts and software experts." -Eric Evans
+---
+# What is Domain-Driven Design?
+
+### "A way of using models for creating software" -Eric Evans
+### "Creative collaboration of domain experts and software experts." -Eric Evans
+### More Philosophical than Prescriptive
+
+---
+# What is Domain-Driven Design?
+
+### "A way of using models for creating software" -Eric Evans
+### "Creative collaboration of domain experts and software experts." -Eric Evans
+### More Philosophical than Prescriptive
+
 - Ubiquitous Language
 - Domain Modeling
 - Strategic Patterns
 - Tactical Patterns
 
 ---
-# Ubiquitous Language
+# What is Domain-Driven Design?
 
-So the Lord scattered them from there over all the earth, and they stopped building the city. That is why it was called Babel—because there the Lord confused the language of the whole world. From there the Lord scattered them over the face of the whole earth. -Genesis 11:8-9
+### "A way of using models for creating software" -Eric Evans
+### "Creative collaboration of domain experts and software experts." -Eric Evans
+### More Philosophical than Prescriptive
 
-![Tower of Babel](babel.jpg)
-http://www.flickr.com/photos/buridan/3657785342/
+- **Ubiquitous Language**
+- Domain Modeling
+- **Strategic Patterns**
+- Tactical Patterns
 
 ---
 # Tactical Patterns
@@ -122,6 +151,14 @@ http://www.flickr.com/photos/buridan/3657785342/
 - Event Sourcing
 
 ![Executive](executive.jpg)
+
+---
+# Ubiquitous Language
+
+> So the Lord scattered them from there over all the earth, and they stopped building the city. That is why it was called Babel—because there the Lord confused the language of the whole world. From there the Lord scattered them over the face of the whole earth. -Genesis 11:8-9
+
+![Tower of Babel](babel.jpg)
+http://www.flickr.com/photos/buridan/3657785342/
 
 ---
 # Strategic Patterns
@@ -144,10 +181,10 @@ Top-Level Architecture
 ##### (Don't take this literally and actually create these classes in your system)
 
 ```C#
-public interface IDomainDrivenDesign {}
+public interface IDomainDrivenDesign { }
 
-public abstract class ServiceOrientedArchitecture : IDomainDrivenDesign {}
-public abstract class MicroServices : ServiceOrientedArchitecture {}
+public abstract class ServiceOrientedArchitecture : IDomainDrivenDesign { }
+public abstract class MicroServices : ServiceOrientedArchitecture { }
 
 public class YourSystem : ServiceOrientedArchitecture
 {
@@ -157,33 +194,49 @@ public class YourSystem : ServiceOrientedArchitecture
   // ...
 }
 
-public class YourCoreDomain : EventSourcing {}
-public class YourSupportingSubdomain0 : JustCRUD {}
+public class YourCoreDomain : EventSourcing { }
+public class YourSupportingSubdomain0 : JustCRUD { }
 ```
 
 ---
-# Bad Idea
+# Key Benefits of Strategic Domain-Driven Design
 
-##### (Don't take this literally and actually create these classes in your system)
+- Work with Conway's Law rather than against it
+- Autonomy
+- Tackle smaller problems and compose larger solutions
 
-```C#
-public interface IDomainDrivenDesign {}
+![Melvin Conway](conway.jpg)
 
-public abstract class ServiceOrientedArchitecture : IDomainDrivenDesign {}
-public abstract class MicroServices : ServiceOrientedArchitecture {}
+---
+# Bounded Contexts
 
-public class YourSystem : ServiceOrientedArchitecture
-{
-  private YourCoreDomain _coreDomain;
-  private YourSupportingSubdomain0 _subdomain0;
-  private YourSupportingSubdomain1 _subdomain1;
-  // ...
-}
+### Services In SOA
 
-public class YourCoreDomain : EventSourcing {}
-public class YourSupportingSubdomain0 : JustCRUD {}
-```
+![Bounded Contexts](states.jpg)
 
+---
+# The Alternative - One Database Schema to Rule Them All
+![Ring](ring.jpg) ![Table](customer.png)
+
+---
+# Pain
+![Pain](clubber.jpg)
+
+---
+class: center, middle
+
+# Domain-Driven Design - A Gentle Introduction
+### Dave Rael
+
+http://optimizedprogrammer.com
+
+http://developeronfire.com
+
+![Developer On Fire](developeronfire.png)
+
+dave@raelyard.com
+
+https://github.com/raelyard/IntroductionToDomainDrivenDesignSlides
 
   </textarea>
   <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
